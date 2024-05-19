@@ -64,7 +64,6 @@ struct ChatView: View {
                                     .foregroundColor(Color("dark green"))
                             }
                         })
-                    
                     if isLoading {
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle(tint: .darkGreen))
@@ -83,30 +82,6 @@ struct ChatView: View {
         isLoading = true
         
         Task {
-            //            do {
-            //                let result = try await model.generateContent(userMessage.content.stringValue)
-            //                response = result.text ?? "I don't have an answer to this problem, sorry :("
-            //                                let responseMessage = ChatMessage(id: UUID().uuidString, content: .string(response), dateCreated: Date(), sender: .chatBot)
-            //                                chatMessages.append(responseMessage)
-            ////                let responseMessage = chatMessage(id: UUID().uuidString, content: .localized(response), dateCreated: Date(), sender: .chatBot)
-            ////                                chatMessages.append(responseMessage)
-            ////                let userMessage = chatMessage(id: UUID().uuidString, content: .string(userPrompt), dateCreated: Date(), sender: .user)
-            ////                chatMessages.append(userMessage)
-            ////                response = LocalizedStringKey(result.text ?? "I don't have an answer to this problem, sorry :(")
-            ////                let responseMessage = chatMessage(id: UUID().uuidString, content: .localized(response), dateCreated: Date(), sender: .chatBot)
-            ////                chatMessages.append(responseMessage)
-            ////                userPrompt = ""
-            ////                isLoading = false
-            //            } catch {
-            //                response = "Something went wrong :(\n\(error.localizedDescription)"
-            //                isLoading = false
-            //                response = "Something went wrong :(\n\(error.localizedDescription)"
-            //                                let errorMessage = chatMessage(id: UUID().uuidString, content: .localized(response), dateCreated: Date(), sender: .chatBot)
-            //                                chatMessages.append(errorMessage)
-            //            }
-            //            isLoading = false
-            //        }
-            //    }
             do {
                 let result = try await model.generateContent(userMessage.content.stringValue)
                 response = result.text ?? "I don't have an answer to this problem, sorry :("
@@ -117,7 +92,7 @@ struct ChatView: View {
                 let errorMessage = chatMessage(id: UUID().uuidString, content: .string(response), dateCreated: Date(), sender: .chatBot)
                 chatMessages.append(errorMessage)
             }
-            isLoading = false // Set to false to hide the ProgressView
+            isLoading = false
         }
     }
     
@@ -132,52 +107,40 @@ struct ChatView: View {
                     .foregroundStyle(message.sender == .user ? .black : .black)
                     .background(message.sender == .user ? .darkGreen : .greeny)
                     .cornerRadius(25)
-          
+                
             }
             if message.sender == .chatBot { Spacer() }
             
         }
         .padding(.vertical, -10)
     }
+    
 }
-        
-    
-    
-    #Preview {
-        ChatView()
-    }
-    
+
+#Preview {
+    ChatView()
+}
+
 struct chatMessage {
     let id: String
     let content: typesOfContent
     let dateCreated: Date
     let sender: MessageSender
 }
-    
-    enum MessageSender {
-        case user
-        case chatBot
-    }
-    
+
+enum MessageSender {
+    case user
+    case chatBot
+}
+
 enum typesOfContent {
-    //        case localized(LocalizedStringKey)
-    //
-    //        var stringValue: String {
-    //                   switch self {
-    //                   case .string(let text):
-    //                       return text
-    //                   case .localized:
-    //                       return "" // Return a default value or handle it appropriately
-    //                   }
-    //               }
-    //           }
     case string(String)
-           
-           var stringValue: String {
-               switch self {
-               case .string(let text):
-                   return text
-               }
-           }
-       }
-  
+    
+    var stringValue: String {
+        switch self {
+        case .string(let text):
+            return text
+        }
+    }
+}
+

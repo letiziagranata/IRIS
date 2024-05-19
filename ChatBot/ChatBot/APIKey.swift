@@ -8,7 +8,6 @@
 import Foundation
 
 enum APIKey {
-    //to fetch the API from the Property List
     static var `default`: String {
         
         guard let filePath = Bundle.main.path(forResource: "GenerativeAIAPI", ofType: "plist")
