@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">RIS has been developed to provide immediate and continuous support to individuals facing the difficulty some people have in communicating with others. This tool not only meets technical requirements but is also designed with an empathetic, user-friendly approach, making it a valid, appealing, and useful solution.<br>The name of the App, IRIS takes inspiration from Greek mythology, as Iris was daughter of the gods Thaumas and Electra, she was the personification of the rainbow and messenger of the gods.</p>
+<p align="left">IRIS has been developed to provide immediate and continuous support to individuals facing the difficulty some people have in communicating with others. This tool not only meets technical requirements but is also designed with an empathetic, user-friendly approach, making it a valid, appealing, and useful solution.<br>The name of the App, IRIS takes inspiration from Greek mythology, as Iris was daughter of the gods Thaumas and Electra, she was the personification of the rainbow and messenger of the gods.</p>
 
 ###
 
